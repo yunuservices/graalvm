@@ -23,7 +23,6 @@ jobs:
         tag:
           - { version: "24", path: "./jdk", name: "jdk-24" }
           - { version: "21", path: "./jdk", name: "jdk-21" }
-          - { version: "17", path: "./jdk", name: "jdk-17" }
           - { version: "24.0.1", path: "./ce", name: "ce-24.0.1" }
           - { version: "23.0.2", path: "./ce", name: "ce-23.0.2" }
           - { version: "22.0.2", path: "./ce", name: "ce-22.0.2" }
