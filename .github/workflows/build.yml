@@ -15,7 +15,7 @@ jobs:
     name: "graalvm:${{ matrix.tag.name }}"
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write
       packages: write
     strategy:
       fail-fast: false
