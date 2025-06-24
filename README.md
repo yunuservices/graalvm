@@ -15,6 +15,5 @@ GraalVM Java builds is here, feel free to **ask questions** on **issues**.
 |--------|-------------------------------------|
 |   24   |`ghcr.io/yunuservices/graalvm:jdk-24`|
 |   21   |`ghcr.io/yunuservices/graalvm:jdk-21`|
-|   17   |`ghcr.io/yunuservices/graalvm:jdk-17`|
 
 Hugely thanks to `MCJars` for making this project compatible with graalvm.
