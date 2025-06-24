@@ -2,7 +2,6 @@ FROM ubuntu:22.04
 
 ARG TARGETPLATFORM
 ARG GRAAL_VERSION=23.0.2
-ARG JAVA_VERSION=23
 
 LABEL maintainer="@yunuservices"
 
