@@ -1,0 +1,67 @@
+name: Build GraalVM
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 1 1 *"
+  push:
+    branches: [ "main" ]
+    paths:
+      - ce/**
+      - jdk/**
+
+jobs:
+  graalvm:
+    name: "graalvm:${{ matrix.tag.name }}"
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write
+    strategy:
+      fail-fast: false
+      matrix:
+        tag:
+          - { version: "24", path: "./jdk", name: "jdk-24" }
+          - { version: "21", path: "./jdk", name: "jdk-21" }
+          - { version: "17", path: "./jdk", name: "jdk-17" }
+          - { version: "24.0.1", path: "./ce", name: "ce-24.0.1" }
+          - { version: "23.0.2", path: "./ce", name: "ce-23.0.2" }
+          - { version: "22.0.2", path: "./ce", name: "ce-22.0.2" }
+          - { version: "21.0.2", path: "./ce", name: "ce-21.0.2" }
+    steps:
+      - name: Git Checkout
+        uses: actions/checkout@v3
+      
+      - name: Setup QEMU
+        uses: docker/setup-qemu-action@v2
+        
+      - name: Docker buildx
+        id: buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Login GHCR
+        if: github.event_name != 'pull_request'
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Docker meta
+        id: meta_graalvm
+        uses: docker/metadata-action@v4
+        with:
+          images: |
+            ghcr.io/yunuservices/graalvm
+          tags: |
+            type=raw,${{ matrix.tag.name }}
+            
+      - name: Build & Push
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          file: ${{ matrix.tag.path }}/${{ matrix.tag.version }}/dockerfile
+          platforms: linux/amd64,linux/arm64
+          push: ${{ github.event_name != 'pull_request' }}
+          tags: ${{ steps.meta_graalvm.outputs.tags }}
+          labels: ${{ steps.meta_graalvm.outputs.labels }}
