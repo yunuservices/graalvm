@@ -1,4 +1,4 @@
-name: Build GraalVM
+name: Build Zulu
 
 on:
   workflow_dispatch:
@@ -7,12 +7,11 @@ on:
   push:
     branches: [ "main" ]
     paths:
-      - ce/**
-      - jdk/**
+      - ./zulu/jdk/**
 
 jobs:
-  graalvm:
-    name: "graalvm:${{ matrix.tag.name }}"
+  java:
+    name: "java:zulu-${{ matrix.tag.name }}"
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -21,12 +20,8 @@ jobs:
       fail-fast: false
       matrix:
         tag:
-          - { version: "24", path: "./jdk", name: "jdk-24" }
-          - { version: "21", path: "./jdk", name: "jdk-21" }
-          - { version: "24.0.1", path: "./ce", name: "ce-24.0.1" }
-          - { version: "23.0.2", path: "./ce", name: "ce-23.0.2" }
-          - { version: "22.0.2", path: "./ce", name: "ce-22.0.2" }
-          - { version: "21.0.2", path: "./ce", name: "ce-21.0.2" }
+          - { version: "24", path: "./zulu/jdk", name: "jdk-24" }
+          - { version: "21", path: "./zulu/jdk", name: "jdk-21" }
     steps:
       - name: Git Checkout
         uses: actions/checkout@v3
@@ -51,7 +46,7 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: |
-            ghcr.io/yunuservices/graalvm
+            ghcr.io/yunuservices/java
           tags: |
             type=raw,${{ matrix.tag.name }}
             
@@ -62,5 +57,5 @@ jobs:
           file: ${{ matrix.tag.path }}/${{ matrix.tag.version }}/dockerfile
           platforms: linux/amd64,linux/arm64
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ steps.meta_graalvm.outputs.tags }}
-          labels: ${{ steps.meta_graalvm.outputs.labels }}
+          tags: ${{ steps.meta_zulu.outputs.tags }}
+          labels: ${{ steps.meta_zulu.outputs.labels }}
