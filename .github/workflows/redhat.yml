@@ -1,4 +1,4 @@
-name: Build Zulu
+name: Build RedHat
 
 on:
   workflow_dispatch:
