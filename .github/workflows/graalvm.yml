@@ -12,7 +12,7 @@ on:
 
 jobs:
   java:
-    name: "java:graal-${{ matrix.tag.name }}"
+    name: "java:${{ matrix.tag.name }}"
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -21,12 +21,12 @@ jobs:
       fail-fast: false
       matrix:
         tag:
-          - { version: "24", path: "./graalvm/jdk", name: "jdk-24" }
-          - { version: "21", path: "./graalvm/jdk", name: "jdk-21" }
-          - { version: "24.0.1", path: "./graalvm/ce", name: "ce-24.0.1" }
-          - { version: "23.0.2", path: "./graalvm/ce", name: "ce-23.0.2" }
-          - { version: "22.0.2", path: "./graalvm/ce", name: "ce-22.0.2" }
-          - { version: "21.0.2", path: "./graalvm/ce", name: "ce-21.0.2" }
+          - { version: "24", path: "./graalvm/jdk", name: "gvm-jdk-24" }
+          - { version: "21", path: "./graalvm/jdk", name: "gvm-jdk-21" }
+          - { version: "24.0.1", path: "./graalvm/ce", name: "gvm-ce-24.0.1" }
+          - { version: "23.0.2", path: "./graalvm/ce", name: "gvm-ce-23.0.2" }
+          - { version: "22.0.2", path: "./graalvm/ce", name: "gvm-ce-22.0.2" }
+          - { version: "21.0.2", path: "./graalvm/ce", name: "gvm-ce-21.0.2" }
     steps:
       - name: Git Checkout
         uses: actions/checkout@v3
