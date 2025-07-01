@@ -42,7 +42,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Docker meta
-        id: meta_graalvm
+        id: meta_zulu
         uses: docker/metadata-action@v4
         with:
           images: |
