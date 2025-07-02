@@ -6,9 +6,6 @@ on:
     - cron: "0 0 1 1 *"
   push:
     branches: [ "main" ]
-    paths:
-      - ./graalvm/ce/**
-      - ./graalvm/jdk/**
 
 jobs:
   java:

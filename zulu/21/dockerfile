@@ -1,6 +1,6 @@
 FROM        azul/zulu-openjdk:21
 
-LABEL maintainer="@yunuservices"
+LABEL       maintainer="@yunuservices"
 
 ENV         DEBIAN_FRONTEND noninteractive
 
