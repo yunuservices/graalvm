@@ -1,4 +1,4 @@
-name: Build Zulu
+name: Build OpenJDK
 
 on:
   workflow_dispatch:
