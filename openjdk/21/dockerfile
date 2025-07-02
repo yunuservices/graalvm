@@ -2,9 +2,9 @@ FROM        shipilev/openjdk:21
 
 LABEL       maintainer="@yunuservices"
 
-RUN         microdnf update -y \
-            && microdnf install -y --no-install-recommends curl ca-certificates openssl git tar sqlite3 fontconfig tzdata locales iproute2 \
-            && microdnf clean \
+RUN         apt-get update -y \
+            && apt-get install -y --no-install-recommends curl ca-certificates openssl git tar sqlite3 fontconfig tzdata locales iproute2 \
+            && apt-get clean \
             && rm -rf /var/lib/apt/lists/* \
             && useradd -m -d /home/container container \
             && locale-gen en_US.UTF-8
