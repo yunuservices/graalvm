@@ -1,4 +1,4 @@
-name: Build OpenJDK
+name: Build Zulu
 
 on:
   workflow_dispatch:
@@ -6,6 +6,8 @@ on:
     - cron: "0 0 1 1 *"
   push:
     branches: [ "main" ]
+    paths:
+      - ./openjdk/**
 
 jobs:
   java:

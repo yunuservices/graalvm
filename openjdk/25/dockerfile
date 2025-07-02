@@ -1,4 +1,4 @@
-FROM        shipilev/openjdk:24
+FROM        shipilev/openjdk:25
 
 LABEL       maintainer="@yunuservices"
 
