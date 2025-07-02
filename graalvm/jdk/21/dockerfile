@@ -27,7 +27,7 @@ RUN apt-get update -y \
 ENV JAVA_HOME=/opt/java/graalvm \
     PATH="/opt/java/graalvm/bin:$PATH"
 
-RUN         curl -sSL https://github.com/OpticFusion1/MCAntiMalware/releases/latest/download/MCAntiMalware.jar \
+RUN curl -sSL https://github.com/OpticFusion1/MCAntiMalware/releases/latest/download/MCAntiMalware.jar \
     -o /MCAntiMalware.jar
 
 RUN useradd -d /home/container -m container
