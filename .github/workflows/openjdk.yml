@@ -20,6 +20,7 @@ jobs:
       fail-fast: false
       matrix:
         tag:
+          - { version: "25", path: "./openjdk", name: "open-jdk-25" }
           - { version: "24", path: "./openjdk", name: "open-jdk-24" }
           - { version: "21", path: "./openjdk", name: "open-jdk-21" }
     steps:
