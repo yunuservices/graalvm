@@ -20,8 +20,8 @@ jobs:
       fail-fast: false
       matrix:
         tag:
-          - { version: "24", path: "./zulu", name: "zulu-jdk-24" }
-          - { version: "21", path: "./zulu", name: "zulu-jdk-21" }
+          - { version: "24", path: "./zulu", name: "zulu-jdk_24" }
+          - { version: "21", path: "./zulu", name: "zulu-jdk_21" }
     steps:
       - name: Git Checkout
         uses: actions/checkout@v3

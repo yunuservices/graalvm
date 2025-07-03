@@ -20,9 +20,9 @@ jobs:
       fail-fast: false
       matrix:
         tag:
-          - { version: "shenandoah", path: "./openjdk", name: "open-jdk-shenandoah" }
-          - { version: "24", path: "./openjdk", name: "open-jdk-24" }
-          - { version: "21", path: "./openjdk", name: "open-jdk-21" }
+          - { version: "shenandoah", path: "./openjdk", name: "open-jdk_shenandoah" }
+          - { version: "24", path: "./openjdk", name: "open-jdk_24" }
+          - { version: "21", path: "./openjdk", name: "open-jdk_21" }
     steps:
       - name: Git Checkout
         uses: actions/checkout@v3
