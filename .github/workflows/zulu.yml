@@ -29,7 +29,7 @@ jobs:
       - name: Setup QEMU
         uses: docker/setup-qemu-action@v2
         
-      - name: Docker buildx
+      - name: Docker BuildX
         id: buildx
         uses: docker/setup-buildx-action@v2
 
@@ -41,7 +41,7 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Docker meta
+      - name: Docker Meta
         id: meta_zulu
         uses: docker/metadata-action@v4
         with:
