@@ -24,4 +24,4 @@ Java images is here, feel free to **ask questions** on **issues**.
 |    24    |`ghcr.io/yunuservices/java:open-jdk_24`        |
 |    21    |`ghcr.io/yunuservices/java:open-jdk_21`        |
 
-Hugely thanks to `MCJars` for making this project compatible with graalvm.
+I would like to thank `MCJars` for their contributions to the creation of this project.
