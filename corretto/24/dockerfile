@@ -2,12 +2,10 @@ FROM        amazoncorretto:24
 
 LABEL       maintainer="@yunuservices"
 
-ENV         DEBIAN_FRONTEND noninteractive
-
-RUN         apt-get update \
-            && apt-get -y install --no-install-recommends curl ca-certificates openssl git tar sqlite3 fontconfig tzdata locales iproute2 \
-            && apt-get clean \
-            && rm -rf /var/lib/apt/lists/* \
+RUN         yum update \
+            && yum -y install --no-install-recommends curl ca-certificates openssl git tar sqlite3 fontconfig tzdata locales iproute2 \
+            && yum clean all \
+            && rm -rf /var/cache/yum \
             && useradd -m -d /home/container container \
             && locale-gen en_US.UTF-8
 
