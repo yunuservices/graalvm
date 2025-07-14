@@ -21,6 +21,7 @@ jobs:
       matrix:
         tag:
           - { version: "24", path: "./zulu", name: "zulu-jdk_24" }
+          - { version: "23", path: "./zulu", name: "zulu-jdk_23" }
           - { version: "21", path: "./zulu", name: "zulu-jdk_21" }
     steps:
       - name: Git Checkout

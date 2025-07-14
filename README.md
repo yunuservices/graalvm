@@ -18,6 +18,7 @@ Encountered a problem? Feel free to contact me on discord & issue tab in reposit
 |    Java    | Azul Zulu                             |
 |------------|---------------------------------------|
 |     24     |`ghcr.io/yunuservices/java:zulu-jdk_24`|
+|     23     |`ghcr.io/yunuservices/java:zulu-jdk_23`|
 |     21     |`ghcr.io/yunuservices/java:zulu-jdk_21`|
 
 |    Java    | OpenJDK                                       |
