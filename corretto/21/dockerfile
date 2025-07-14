@@ -3,7 +3,7 @@ FROM        amazoncorretto:21
 LABEL       maintainer="@yunuservices"
 
 RUN         yum update \
-            && yum -y install curl ca-certificates openssl git tar sqlite fontconfig tzdata \
+            && yum -y install curl ca-certificates openssl git tar sqlite fontconfig tzdata --allowerasing \
             && yum clean all \
             && rm -rf /var/cache/yum \
             && useradd -m -d /home/container container
