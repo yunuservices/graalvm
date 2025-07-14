@@ -2,12 +2,11 @@ FROM        amazoncorretto:21
 
 LABEL       maintainer="@yunuservices"
 
-RUN         yum remove -y curl-minimal \
-            && yum update \
+RUN         yum update \
             && yum -y install curl ca-certificates openssl git tar sqlite fontconfig tzdata \
             && yum clean all \
             && rm -rf /var/cache/yum \
-            && useradd -m -d /home/container container \
+            && useradd -m -d /home/container container
 
 RUN         curl -sSL https://github.com/OpticFusion1/MCAntiMalware/releases/latest/download/MCAntiMalware.jar \
             -o /MCAntiMalware.jar
