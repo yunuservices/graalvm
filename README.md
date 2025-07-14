@@ -25,6 +25,7 @@ Encountered a problem? Feel free to contact me on discord & issue tab in reposit
 |------------|-----------------------------------------------|
 | shenandoah |`ghcr.io/yunuservices/java:open-jdk_shenandoah`|
 |     24     |`ghcr.io/yunuservices/java:open-jdk_24`        |
+|     23     |`ghcr.io/yunuservices/java:open-jdk_23`        |
 |     21     |`ghcr.io/yunuservices/java:open-jdk_21`        |
 
 |    Java    | Amazon Corretto                               |
