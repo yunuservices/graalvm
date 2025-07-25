@@ -22,7 +22,7 @@ jobs:
         tag:
           - { version: "24", path: "./graalvm/jdk", name: "gvm-jdk_24" }
           - { version: "21", path: "./graalvm/jdk", name: "gvm-jdk_21" }
-          - { version: "24.0.1", path: "./graalvm/ce", name: "gvm-ce_24.0.1" }
+          - { version: "24.0.2", path: "./graalvm/ce", name: "gvm-ce_24.0.2" }
           - { version: "23.0.2", path: "./graalvm/ce", name: "gvm-ce_23.0.2" }
           - { version: "22.0.2", path: "./graalvm/ce", name: "gvm-ce_22.0.2" }
           - { version: "21.0.2", path: "./graalvm/ce", name: "gvm-ce_21.0.2" }
