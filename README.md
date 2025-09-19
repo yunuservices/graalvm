@@ -6,10 +6,12 @@ Encountered a problem? Feel free to contact me on discord & issue tab in reposit
 
 |    Java    | GraalVM CE & JDK                        |
 |------------|-----------------------------------------|
+|   25.0.0   |`ghcr.io/yunuservices/java:gvm-ce_25.0.0`|
 |   24.0.2   |`ghcr.io/yunuservices/java:gvm-ce_24.0.2`|
 |   23.0.2   |`ghcr.io/yunuservices/java:gvm-ce_23.0.2`|
 |   22.0.2   |`ghcr.io/yunuservices/java:gvm-ce_22.0.2`|
 |   21.0.2   |`ghcr.io/yunuservices/java:gvm-ce_21.0.2`|
+|     25     |`ghcr.io/yunuservices/java:gvm-jdk_25`   |
 |     24     |`ghcr.io/yunuservices/java:gvm-jdk_24`   |
 |     21     |`ghcr.io/yunuservices/java:gvm-jdk_21`   |
 
