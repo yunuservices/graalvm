@@ -1,21 +1,12 @@
-FROM        shipilev/openjdk:21
+FROM shipilev/openjdk:21
 
-LABEL       maintainer="@yunuservices"
+LABEL maintainter="yunuservices"
 
-RUN         apt-get update -y \
-            && apt-get install -y --no-install-recommends curl ca-certificates openssl git tar sqlite3 fontconfig tzdata locales iproute2 \
-            && apt-get clean \
-            && rm -rf /var/lib/apt/lists/* \
-            && useradd -m -d /home/container container \
-            && locale-gen en_US.UTF-8
+RUN useradd -d /home/container -m container
 
-ENV         LC_ALL=en_US.UTF-8
-ENV         LANG=en_US.UTF-8
-ENV         LANGUAGE=en_US.UTF-8
+USER container
+ENV USER=container HOME=/home/container
+WORKDIR /home/container
 
-USER        container
-ENV         USER=container HOME=/home/container
-WORKDIR     /home/container
-
-COPY        ./../../entrypoint.sh /entrypoint.sh
-CMD         [ "/bin/bash", "/entrypoint.sh" ]
+COPY ../../entrypoint.sh /entrypoint.sh
+CMD [ "/bin/bash", "/entrypoint.sh" ]
