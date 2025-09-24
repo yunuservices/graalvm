@@ -7,11 +7,12 @@ on:
   push:
     branches: [ "main" ]
     paths:
-      - ./graalvm/**
+      - ./jdk/**
+      - ./ce/**
 
 jobs:
-  java:
-    name: "java:${{ matrix.tag.name }}"
+  graalvm:
+    name: "graalvm:${{ matrix.tag.name }}"
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -20,12 +21,10 @@ jobs:
       fail-fast: false
       matrix:
         tag:
-          - { version: "25", path: "./graalvm/jdk", name: "gvm-jdk_25" }
-          - { version: "24", path: "./graalvm/jdk", name: "gvm-jdk_24" }
-          - { version: "21", path: "./graalvm/jdk", name: "gvm-jdk_21" }
-          - { version: "25.0.0", path: "./graalvm/ce", name: "gvm-ce_25.0.0" }
-          - { version: "24.0.2", path: "./graalvm/ce", name: "gvm-ce_24.0.2" }
-          - { version: "21.0.1", path: "./graalvm/ce", name: "gvm-ce_21.0.1" }
+          - { version: "24.0.2", path: "./ce", name: "ce_24.0.2" }
+          - { version: "21.0.2", path: "./ce", name: "ce_21.0.2" }
+          - { version: "24", path: "./jdk", name: "jdk_24" }        
+          - { version: "21", path: "./jdk", name: "jdk_21" }
     steps:
       - name: Git Checkout
         uses: actions/checkout@v3
@@ -50,7 +49,7 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: |
-            ghcr.io/yunuservices/java
+            ghcr.io/yunuservices/graalvm
           tags: |
             type=raw,${{ matrix.tag.name }}
             
