@@ -7,8 +7,8 @@ on:
   push:
     branches: [ "main" ]
     paths:
-      - ./jdk/**
-      - ./ce/**
+      - ce/**
+      - jdk/**
 
 jobs:
   graalvm:
@@ -21,10 +21,10 @@ jobs:
       fail-fast: false
       matrix:
         tag:
-          - { version: "24.0.2", path: "./ce", name: "ce_24.0.2" }
-          - { version: "21.0.2", path: "./ce", name: "ce_21.0.2" }
-          - { version: "24", path: "./jdk", name: "jdk_24" }        
+          - { version: "24", path: "./jdk", name: "jdk_24" }
           - { version: "21", path: "./jdk", name: "jdk_21" }
+          - { version: "24.0.2", path: "./ce", name: "ce_24.0.1" }
+          - { version: "21.0.2", path: "./ce", name: "ce_21.0.2" }
     steps:
       - name: Git Checkout
         uses: actions/checkout@v3
@@ -32,7 +32,7 @@ jobs:
       - name: Setup QEMU
         uses: docker/setup-qemu-action@v2
         
-      - name: Docker BuildX
+      - name: Docker buildx
         id: buildx
         uses: docker/setup-buildx-action@v2
 
@@ -44,8 +44,8 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Docker Meta
-        id: meta_openjdk
+      - name: Docker meta
+        id: meta_graalvm
         uses: docker/metadata-action@v4
         with:
           images: |
