@@ -10,20 +10,21 @@ on:
       - ce/**
       - jdk/**
 
+permissions:
+  contents: write
+  packages: write
+
 jobs:
   graalvm:
     name: "graalvm:${{ matrix.tag.name }}"
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      packages: write
     strategy:
       fail-fast: false
       matrix:
         tag:
           - { version: "24", path: "./jdk", name: "jdk_24" }
           - { version: "21", path: "./jdk", name: "jdk_21" }
-          - { version: "24.0.2", path: "./ce", name: "ce_24.0.1" }
+          - { version: "24.0.2", path: "./ce", name: "ce_24.0.2" }
           - { version: "21.0.2", path: "./ce", name: "ce_21.0.2" }
     steps:
       - name: Git Checkout
